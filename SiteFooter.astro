@@ -1,0 +1,17 @@
+---
+import { contact, address } from '@data/site';
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-slate-500">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div><p class="font-medium text-slate-900">Vanny’s Peaceful Guesthouse</p><p class="mt-1">{address.full}</p></div>
+      <div class="space-y-1">
+        <p><a href={contact.phoneHref} class="hover:text-slate-900">{contact.phoneDisplay}</a></p>
+        <p><a href={contact.emailHref} class="hover:text-slate-900">{contact.emailDisplay}</a></p>
+        <p><a href={contact.whatsappHref} class="hover:text-slate-900" rel="noopener">WhatsApp</a><span aria-hidden="true"> · </span><a href={contact.telegramHref} class="hover:text-slate-900" rel="noopener">Telegram</a></p>
+      </div>
+    </div>
+    <p class="mt-6 text-xs text-slate-400">© {year} Vanny’s Peaceful Guesthouse. Static site. No cookies, no tracking scripts.</p>
+  </div>
+</footer>

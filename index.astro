@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import Hero from '@components/Hero.astro';
+import RoomGrid from '@components/RoomGrid.astro';
+import Amenities from '@components/Amenities.astro';
+import LocationAnchor from '@components/LocationAnchor.astro';
+import SocialProof from '@components/SocialProof.astro';
+import DirectConnect from '@components/DirectConnect.astro';
+import StickyWhatsAppButton from '@components/StickyWhatsAppButton.astro';
+import SiteFooter from '@components/SiteFooter.astro';
+---
+<BaseLayout>
+  <SiteHeader />
+  <main id="main">
+    <Hero />
+    <RoomGrid />
+    <Amenities />
+    <LocationAnchor />
+    <SocialProof />
+    <DirectConnect />
+  </main>
+  <SiteFooter />
+  <StickyWhatsAppButton />
+</BaseLayout>

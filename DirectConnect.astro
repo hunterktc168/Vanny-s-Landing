@@ -1,0 +1,25 @@
+---
+import { contact, hours } from '@data/site';
+const channels = [
+  { label: 'WhatsApp', description: 'Fastest for booking inquiries', href: contact.whatsappHref, display: contact.whatsappDisplay, primary: true },
+  { label: 'Telegram', description: 'Message Vanny directly', href: contact.telegramHref, display: contact.telegramDisplay, primary: false },
+  { label: 'Phone', description: 'Call during reception hours', href: contact.phoneHref, display: contact.phoneDisplay, primary: false },
+  { label: 'Email', description: 'For longer inquiries', href: contact.emailHref, display: contact.emailDisplay, primary: false },
+] as const;
+---
+<section id="contact" class="mx-auto max-w-5xl px-4 py-12">
+  <h2 class="text-2xl font-bold tracking-tight text-slate-900">Book direct</h2>
+  <p class="mt-2 max-w-2xl text-base text-slate-600">Contact Vanny directly. We match public OTA pricing for the same dates and room category. Check-in {hours.checkIn}; check-out {hours.checkOut}.</p>
+  <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+    {channels.map((channel) => (
+      <li><a href={channel.href} class:list={[
+        'flex min-h-[44px] flex-col justify-center rounded-xl border px-5 py-4 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+        channel.primary ? 'border-emerald-700 bg-emerald-700 text-white hover:bg-emerald-800 focus-visible:outline-emerald-700' : 'border-slate-300 bg-white text-slate-900 hover:bg-slate-50 focus-visible:outline-slate-900',
+      ]} rel={channel.href.startsWith('http') ? 'noopener' : undefined}>
+        <span class="text-base font-semibold">{channel.label}</span>
+        <span class:list={['mt-0.5 text-sm', channel.primary ? 'text-emerald-100' : 'text-slate-500']}>{channel.description}</span>
+        <span class:list={['mt-1 text-sm font-medium', channel.primary ? 'text-white' : 'text-slate-700']}>{channel.display}</span>
+      </a></li>
+    ))}
+  </ul>
+</section>

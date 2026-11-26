@@ -1,0 +1,11 @@
+---
+import { rating, reviews } from '@data/site';
+---
+<section class="bg-slate-900 text-white">
+  <div class="mx-auto max-w-5xl px-4 py-12">
+    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2"><h2 class="text-2xl font-bold tracking-tight">Guest feedback</h2><p class="text-sm text-slate-300">{rating.score}/{rating.outOf} — {rating.label} ({rating.reviewCount} reviews)</p></div>
+    <dl class="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-300">{rating.subscores.map((subscore) => <div class="flex gap-1.5"><dt>{subscore.label}:</dt><dd class="font-medium text-white">{subscore.score}</dd></div>)}</dl>
+    <ul class="mt-8 grid gap-5 sm:grid-cols-2">{reviews.map((review) => <li class="rounded-lg bg-slate-800 p-4"><blockquote class="text-sm leading-relaxed text-slate-100">“{review.text}”</blockquote><p class="mt-2 text-xs text-slate-400">— {review.author}, {review.country}</p></li>)}</ul>
+    <p class="mt-6 text-xs text-slate-400">Review excerpts reproduced from public listings. Individual experiences vary.</p>
+  </div>
+</section>
