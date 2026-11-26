@@ -124,7 +124,13 @@ export const rooms: readonly Room[] = [
   },
 ] as const;
 
-export const nearby = [
+export type NearbyPlace = {
+  name: string;
+  distance: string;
+  walk?: string;
+};
+
+export const nearby: readonly NearbyPlace[] = [
   { name: 'Tuol Sleng Genocide Museum', distance: 'approx. 1.2 km', walk: 'about 14 min walk' },
   { name: 'Sovanna Phum Art Association & Art Gallery', distance: 'approx. 1.2 km' },
   { name: 'Moha Montrei Pagoda', distance: 'approx. 2.2 km' },
@@ -132,7 +138,7 @@ export const nearby = [
   { name: 'Riverside Park', distance: 'approx. 4.5 km' },
   { name: 'Killing Fields of Choeung Ek', distance: 'approx. 9 km' },
   { name: 'Russian Market area', distance: 'nearby, per guest reviews' },
-] as const;
+];
 
 export type Review = {
   author: string;
